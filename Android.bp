@@ -45,6 +45,16 @@ cc_prebuilt_library_shared {
 }
 
 android_app_import {
+	name: "SoterService",
+	owner: "realme",
+	apk: "proprietary/app/SoterService/SoterService.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+}
+
+android_app_import {
 	name: "CACertService",
 	owner: "realme",
 	apk: "proprietary/vendor/app/CACertService/CACertService.apk",
@@ -59,17 +69,6 @@ android_app_import {
 	name: "CneApp",
 	owner: "realme",
 	apk: "proprietary/vendor/app/CneApp/CneApp.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-	soc_specific: true,
-}
-
-android_app_import {
-	name: "SoterService",
-	owner: "realme",
-	apk: "proprietary/vendor/app/SoterService/SoterService.apk",
 	certificate: "platform",
 	dex_preopt: {
 		enabled: false,
@@ -277,9 +276,23 @@ dex_import {
 }
 
 dex_import {
+	name: "vendor.qti.hardware.alarm-V1.0-java",
+	owner: "realme",
+	jars: ["proprietary/product/framework/vendor.qti.hardware.alarm-V1.0-java.jar"],
+	product_specific: true,
+}
+
+dex_import {
 	name: "vendor.qti.hardware.data.iwlan-V1.0-java",
 	owner: "realme",
 	jars: ["proprietary/product/framework/vendor.qti.hardware.data.iwlan-V1.0-java.jar"],
+	product_specific: true,
+}
+
+dex_import {
+	name: "vendor.qti.hardware.soter-V1.0-java",
+	owner: "realme",
+	jars: ["proprietary/product/framework/vendor.qti.hardware.soter-V1.0-java.jar"],
 	product_specific: true,
 }
 
@@ -316,22 +329,6 @@ dex_import {
 	owner: "realme",
 	jars: ["proprietary/system_ext/framework/dpmapi.jar"],
 	system_ext_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.hardware.alarm-V1.0-java",
-	owner: "realme",
-	jars: ["proprietary/system_ext/framework/vendor.qti.hardware.alarm-V1.0-java.jar"],
-	system_ext_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "manifest_android.hardware.drm@1.3-service.widevine",
-	owner: "realme",
-	src: "proprietary/vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	soc_specific: true,
 }
 
 prebuilt_etc_xml {
